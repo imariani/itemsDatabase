@@ -7,7 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IDItem.h"
+
+@protocol SaveItemDelegate <NSObject>
+
+-(void)notifyItemSavedSuccessfully;
+
+@end
 
 @interface IDSavingManager : NSObject
+
+@property (strong, nonatomic) id<SaveItemDelegate> delegate;
+
++(id)sharedInstance;
+-(void)setNewDelegate:(id)newDelegate;
+-(void)saveItem:(IDItem *) item;
+-(void)showItemsSaved;
 
 @end

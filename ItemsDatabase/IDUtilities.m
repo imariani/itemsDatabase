@@ -10,4 +10,15 @@
 
 @implementation IDUtilities
 
++ (NSString *)formatDecimalFromFloat:(float)resFloat
+{
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    formatter.maximumFractionDigits = 5;
+    
+    NSString *result = [formatter stringFromNumber:@(resFloat)];
+    
+    return result;
+}
+
 @end

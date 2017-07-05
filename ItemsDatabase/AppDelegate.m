@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "IDNewItemFormViewController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,22 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    IDNewItemFormViewController *initViewController = [[IDNewItemFormViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:initViewController];
+    
+    navController.navigationBar.barStyle = UIBarStyleDefault;
+    navController.navigationBar.barTintColor = [UIColor yellowColor];
+    navController.navigationBar.tintColor = [UIColor colorWithRed:51.f / 255.f green:51.f / 255.f blue:51.f / 255.f alpha:1];
+    navController.navigationBar.opaque = YES;
+    navController.navigationBar.translucent = NO;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = navController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

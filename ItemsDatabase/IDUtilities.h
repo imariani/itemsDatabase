@@ -10,4 +10,6 @@
 
 @interface IDUtilities : NSObject
 
++ (NSString *)formatDecimalFromFloat:(float)resFloat;
+
 @end
